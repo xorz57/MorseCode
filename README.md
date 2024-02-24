@@ -1,3 +1,3 @@
 # MorseCode
 
-![image](https://github.com/xorz57/MorseCode/assets/84932056/8818b4af-1497-4fa1-92d8-0e663a951550)
+![image](https://github.com/xorz57/MorseCode/assets/84932056/7753bc0f-69f2-4f04-944e-38b719f9fae8)
