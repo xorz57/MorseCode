@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void convert();
+    void on_plainTextEdit1_textChanged();
 
 private:
     Ui::MainWindow *ui;

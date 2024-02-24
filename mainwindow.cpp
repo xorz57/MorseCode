@@ -38,7 +38,7 @@ QString MainWindow::decode(const QString &input) {
     return output;
 }
 
-void MainWindow::convert()
+void MainWindow::on_plainTextEdit1_textChanged()
 {
     QString input = ui->plainTextEdit1->toPlainText();
     if (input.startsWith('.') || input.startsWith('-')) {
