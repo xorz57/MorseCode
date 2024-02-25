@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->plainTextEdit1, SIGNAL(textChanged()), this, SLOT(convert()));
     connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(open()));
     connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save()));
+    connect(ui->actionZoom_In, SIGNAL(triggered(bool)), this, SLOT(zoomIn()));
+    connect(ui->actionZoom_Out, SIGNAL(triggered(bool)), this, SLOT(zoomOut()));
 }
 
 MainWindow::~MainWindow() {
@@ -83,4 +85,14 @@ void MainWindow::save() {
     QTextStream out(&file);
     out << ui->plainTextEdit2->toPlainText();
     file.close();
+}
+
+void MainWindow::zoomIn() {
+    ui->plainTextEdit1->zoomIn(1);
+    ui->plainTextEdit2->zoomIn(1);
+}
+
+void MainWindow::zoomOut() {
+    ui->plainTextEdit1->zoomOut(1);
+    ui->plainTextEdit2->zoomOut(1);
 }

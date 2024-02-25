@@ -21,6 +21,8 @@ private slots:
     void convert();
     void open();
     void save();
+    void zoomIn();
+    void zoomOut();
 
 private:
     QString encode(const QString &input);
