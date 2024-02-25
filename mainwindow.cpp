@@ -7,6 +7,10 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
+    connect(ui->plainTextEdit1, SIGNAL(textChanged()), this, SLOT(convert()));
+    connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(open()));
+    connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save()));
 }
 
 MainWindow::~MainWindow() {
@@ -38,7 +42,7 @@ QString MainWindow::decode(const QString &input) {
     return output;
 }
 
-void MainWindow::on_plainTextEdit1_textChanged() {
+void MainWindow::convert() {
     QString input = ui->plainTextEdit1->toPlainText();
     if (input.startsWith('.') || input.startsWith('-')) {
         QString output = decode(input);
@@ -49,23 +53,7 @@ void MainWindow::on_plainTextEdit1_textChanged() {
     }
 }
 
-void MainWindow::on_actionSave_triggered() {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", tr("Text Files (*.txt)"));
-    if (fileName.isEmpty()) {
-        return;
-    }
-
-    QFile file(fileName);
-    if (!file.open(QIODevice::WriteOnly)) {
-        return;
-    }
-
-    QTextStream out(&file);
-    out << ui->plainTextEdit2->toPlainText();
-    file.close();
-}
-
-void MainWindow::on_actionOpen_triggered() {
+void MainWindow::open() {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Text Files (*.txt)"));
     if (fileName.isEmpty()) {
         return;
@@ -78,5 +66,21 @@ void MainWindow::on_actionOpen_triggered() {
 
     QTextStream in(&file);
     ui->plainTextEdit1->setPlainText(in.readAll());
+    file.close();
+}
+
+void MainWindow::save() {
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", tr("Text Files (*.txt)"));
+    if (fileName.isEmpty()) {
+        return;
+    }
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly)) {
+        return;
+    }
+
+    QTextStream out(&file);
+    out << ui->plainTextEdit2->toPlainText();
     file.close();
 }

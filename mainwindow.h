@@ -18,15 +18,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_plainTextEdit1_textChanged();
-
-    void on_actionSave_triggered();
-
-    void on_actionOpen_triggered();
+    void convert();
+    void open();
+    void save();
 
 private:
-    Ui::MainWindow *ui;
-
     QString encode(const QString &input);
     QString decode(const QString &input);
 
@@ -55,5 +51,7 @@ private:
                                             {"-....", '6'}, {"--...", '7'}, {"---..", '8'}, {"----.", '9'},
                                             {"/", ' '},
                                             };
+
+    Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
