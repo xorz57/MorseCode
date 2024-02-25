@@ -16,10 +16,10 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPlainTextEdit" name="plainTextEdit1"/>
+     <widget class="QPlainTextEdit" name="inputPlainTextEdit"/>
     </item>
     <item>
-     <widget class="QPlainTextEdit" name="plainTextEdit2"/>
+     <widget class="QPlainTextEdit" name="outputPlainTextEdit"/>
     </item>
    </layout>
   </widget>

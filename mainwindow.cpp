@@ -8,7 +8,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    connect(ui->plainTextEdit1, SIGNAL(textChanged()), this, SLOT(convert()));
+    connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(convert()));
     connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(open()));
     connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save()));
     connect(ui->actionZoom_In, SIGNAL(triggered(bool)), this, SLOT(zoomIn()));
@@ -45,13 +45,13 @@ QString MainWindow::decode(const QString &input) {
 }
 
 void MainWindow::convert() {
-    QString input = ui->plainTextEdit1->toPlainText();
+    QString input = ui->inputPlainTextEdit->toPlainText();
     if (input.startsWith('.') || input.startsWith('-')) {
         QString output = decode(input);
-        ui->plainTextEdit2->setPlainText(output);
+        ui->outputPlainTextEdit->setPlainText(output);
     } else {
         QString output = encode(input);
-        ui->plainTextEdit2->setPlainText(output);
+        ui->outputPlainTextEdit->setPlainText(output);
     }
 }
 
@@ -67,7 +67,7 @@ void MainWindow::open() {
     }
 
     QTextStream in(&file);
-    ui->plainTextEdit1->setPlainText(in.readAll());
+    ui->inputPlainTextEdit->setPlainText(in.readAll());
     file.close();
 }
 
@@ -83,16 +83,16 @@ void MainWindow::save() {
     }
 
     QTextStream out(&file);
-    out << ui->plainTextEdit2->toPlainText();
+    out << ui->outputPlainTextEdit->toPlainText();
     file.close();
 }
 
 void MainWindow::zoomIn() {
-    ui->plainTextEdit1->zoomIn(1);
-    ui->plainTextEdit2->zoomIn(1);
+    ui->inputPlainTextEdit->zoomIn(1);
+    ui->outputPlainTextEdit->zoomIn(1);
 }
 
 void MainWindow::zoomOut() {
-    ui->plainTextEdit1->zoomOut(1);
-    ui->plainTextEdit2->zoomOut(1);
+    ui->inputPlainTextEdit->zoomOut(1);
+    ui->outputPlainTextEdit->zoomOut(1);
 }
