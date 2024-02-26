@@ -1,7 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QChar>
 #include <QMainWindow>
+#include <QMap>
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
