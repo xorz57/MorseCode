@@ -100,14 +100,6 @@
     <string>Ctrl+-</string>
    </property>
   </action>
-  <action name="actionZoom_Reset">
-   <property name="text">
-    <string>Zoom Reset</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+0</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>
