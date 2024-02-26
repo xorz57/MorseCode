@@ -28,8 +28,8 @@ private slots:
     void zoomOut();
 
 private:
-    QString encode(const QString &input);
-    QString decode(const QString &input);
+    QString encode(const QString &input) const;
+    QString decode(const QString &input) const;
 
     const QMap<QChar, QString> lookUpTable1 {
                                             { 'A', ".-" },

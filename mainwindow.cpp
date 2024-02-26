@@ -19,7 +19,7 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-QString MainWindow::encode(const QString &input) {
+QString MainWindow::encode(const QString &input) const {
     QString output;
 
     for (const QChar &c : input) {
@@ -32,7 +32,7 @@ QString MainWindow::encode(const QString &input) {
     return output;
 }
 
-QString MainWindow::decode(const QString &input) {
+QString MainWindow::decode(const QString &input) const {
     QString output;
 
     for (const QString &token : input.split(' ')) {
