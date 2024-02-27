@@ -3,9 +3,11 @@
 #include <QApplication>
 
 int main(int argc, char *argv[]) {
+    QApplication::setStyle("Fusion");
     QApplication application(argc, argv);
-    application.setStyle("Fusion");
+
     MainWindow mainWindow;
     mainWindow.show();
-    return application.exec();
+
+    return QApplication::exec();
 }
