@@ -67,6 +67,21 @@ CMakeLists.txt.user*
 # Python byte code
 *.pyc
 
+# IntelliJ CLion
+/.idea/
+/cmake-build-*/
+
+# Microsoft Visual Studio Code
+/.vscode/
+/build/
+
+# Microsoft Visual Studio
+/.vs/
+/out/
+
+# clangd
+/.cache/
+
 # Binaries
 # --------
 *.dll
