@@ -21,7 +21,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void convert();
+    void translate();
     void open();
     void save();
     void zoomIn();

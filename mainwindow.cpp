@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "ui_mainwindow.h"
 
 #include <QFile>
 #include <QFileDialog>
@@ -8,7 +8,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(convert()));
+    connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(translate()));
     connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(open()));
     connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save()));
     connect(ui->actionZoom_In, SIGNAL(triggered(bool)), this, SLOT(zoomIn()));
@@ -44,7 +44,7 @@ QString MainWindow::decode(const QString &input) const {
     return output;
 }
 
-void MainWindow::convert() {
+void MainWindow::translate() {
     QString input = ui->inputPlainTextEdit->toPlainText();
     if (input.startsWith('.') || input.startsWith('-')) {
         QString output = decode(input);
