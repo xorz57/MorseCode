@@ -5,7 +5,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
     connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(translate()));
@@ -13,6 +13,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save()));
     connect(ui->actionZoom_In, SIGNAL(triggered(bool)), this, SLOT(zoomIn()));
     connect(ui->actionZoom_Out, SIGNAL(triggered(bool)), this, SLOT(zoomOut()));
+}
+
+MainWindow::~MainWindow() {
+    delete ui;
 }
 
 QString MainWindow::encode(const QString &input) const {

@@ -6,8 +6,6 @@
 #include <QMap>
 #include <QString>
 
-#include <memory>
-
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -19,7 +17,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
 private slots:
     void translate();
@@ -148,6 +147,6 @@ private:
                                             { ".--.-.", '@' },
                                             };
 
-    std::shared_ptr<Ui::MainWindow> ui = std::make_shared<Ui::MainWindow>();
+    Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
