@@ -13,7 +13,7 @@
 
 ## Requirements
 
-- Qt5
+- Qt6
 - C++ compiler (supporting C++17 or later)
 
 ## License
