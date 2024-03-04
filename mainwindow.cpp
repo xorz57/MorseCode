@@ -5,6 +5,10 @@
 #include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+    for (auto it = lookUpTable1.begin(); it != lookUpTable1.end(); ++it) {
+        lookUpTable2.insert(it.value(), it.key());
+    }
+
     ui->setupUi(this);
 
     connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(translate()));
