@@ -1,11 +1,10 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 #include <QFile>
 #include <QFileDialog>
 #include <QTextStream>
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     ui->setupUi(this);
 
     connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(translate()));
@@ -15,14 +14,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->actionZoom_Out, SIGNAL(triggered(bool)), this, SLOT(zoomOut()));
 }
 
-MainWindow::~MainWindow() {
-    delete ui;
-}
-
 QString MainWindow::encode(const QString &input) const {
     QString output;
 
-    for (const QChar &c : input) {
+    for (const QChar &c: input) {
         if (lookUpTable1.contains(c.toUpper())) {
             output += lookUpTable1.value(c.toUpper());
         }
@@ -35,7 +30,7 @@ QString MainWindow::encode(const QString &input) const {
 QString MainWindow::decode(const QString &input) const {
     QString output;
 
-    for (const QString &token : input.split(' ')) {
+    for (const QString &token: input.split(' ')) {
         if (lookUpTable2.contains(token)) {
             output += lookUpTable2.value(token);
         }
