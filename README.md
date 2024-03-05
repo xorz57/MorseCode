@@ -11,10 +11,38 @@
 - Load Text or Morse Code from a file.
 - Save Text or Morse Code to a file.
 
-## Requirements
+## Dependencies
 
-- Qt6
-- C++ compiler (supporting C++17 or later)
+- [Qt Base](https://github.com/qt/qtbase)
+
+## How to Build
+
+#### Linux & macOS
+
+```bash
+git clone https://github.com/microsoft/vcpkg.git ~/vcpkg
+~/vcpkg/bootstrap-vcpkg.sh
+
+git clone https://github.com/xorz57/MorseCodeTranslator.git
+cd MorseCodeTranslator
+cmake -B build -DCMAKE_BUILD_TYPE=Release -S . -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake
+cmake --build build --config Release
+ctest --build-config Release
+```
+
+#### Windows
+
+```powershell
+git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
+C:/vcpkg/bootstrap-vcpkg.bat
+C:/vcpkg/vcpkg.exe integrate install
+
+git clone https://github.com/xorz57/MorseCodeTranslator.git
+cd MorseCodeTranslator
+cmake -B build -DCMAKE_BUILD_TYPE=Release -S . -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
+cmake --build build --config Release
+ctest --build-config Release
+```
 
 ## License
 
