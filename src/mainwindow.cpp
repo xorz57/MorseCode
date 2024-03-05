@@ -5,7 +5,7 @@
 #include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-    for (auto it = lookUpTable1.begin(); it != lookUpTable1.end(); ++it) {
+    for (auto it = lookUpTable1.constBegin(); it != lookUpTable1.constEnd(); ++it) {
         lookUpTable2.insert(it.value(), it.key());
     }
 
