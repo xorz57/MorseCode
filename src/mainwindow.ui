@@ -19,7 +19,11 @@
      <widget class="QPlainTextEdit" name="inputPlainTextEdit"/>
     </item>
     <item>
-     <widget class="QPlainTextEdit" name="outputPlainTextEdit"/>
+     <widget class="QPlainTextEdit" name="outputPlainTextEdit">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
