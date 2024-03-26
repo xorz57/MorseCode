@@ -1,8 +1,8 @@
-# MorseCodeTranslator
+# MorseCodeConverter
 
-[![Build](https://github.com/xorz57/MorseCodeTranslator/actions/workflows/Build.yml/badge.svg)](https://github.com/xorz57/MorseCodeTranslator/actions/workflows/Build.yml)
+[![Build](https://github.com/xorz57/MorseCodeConverter/actions/workflows/Build.yml/badge.svg)](https://github.com/xorz57/MorseCodeConverter/actions/workflows/Build.yml)
 
-![image](https://github.com/xorz57/MorseCodeTranslator/assets/84932056/f53f08c7-8c3b-4634-aa46-b4a6794b6a49)
+![image](https://github.com/xorz57/MorseCodeConverter/assets/84932056/f53f08c7-8c3b-4634-aa46-b4a6794b6a49)
 
 ## Features
 
@@ -23,8 +23,8 @@
 git clone https://github.com/microsoft/vcpkg.git ~/vcpkg
 ~/vcpkg/bootstrap-vcpkg.sh
 
-git clone https://github.com/xorz57/MorseCodeTranslator.git
-cd MorseCodeTranslator
+git clone https://github.com/xorz57/MorseCodeConverter.git
+cd MorseCodeConverter
 cmake -B build -DCMAKE_BUILD_TYPE=Release -S . -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake
 cmake --build build --config Release
 ctest --build-config Release
@@ -37,8 +37,8 @@ git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
 C:/vcpkg/bootstrap-vcpkg.bat
 C:/vcpkg/vcpkg.exe integrate install
 
-git clone https://github.com/xorz57/MorseCodeTranslator.git
-cd MorseCodeTranslator
+git clone https://github.com/xorz57/MorseCodeConverter.git
+cd MorseCodeConverter
 cmake -B build -DCMAKE_BUILD_TYPE=Release -S . -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
 cmake --build build --config Release
 ctest --build-config Release
@@ -50,7 +50,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
-We would like to express our gratitude to the authors and maintainers of the libraries and tools that MorseCodeTranslator depends on. Their work is greatly appreciated.
+We would like to express our gratitude to the authors and maintainers of the libraries and tools that MorseCodeConverter depends on. Their work is greatly appreciated.
 
 ## Contact
 

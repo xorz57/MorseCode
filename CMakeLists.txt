@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.26)
 
 cmake_policy(SET CMP0091 NEW)
 
-project(MorseCodeTranslator VERSION 0.1 LANGUAGES CXX)
+project(MorseCodeConverter VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -28,37 +28,37 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(MorseCodeTranslator
+    qt_add_executable(MorseCodeConverter
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET MorseCodeTranslator APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET MorseCodeConverter APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(MorseCodeTranslator SHARED
+        add_library(MorseCodeConverter SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(MorseCodeTranslator
+        add_executable(MorseCodeConverter
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(MorseCodeTranslator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(MorseCodeConverter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.MorseCodeTranslator)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.MorseCodeConverter)
 endif()
-set_target_properties(MorseCodeTranslator PROPERTIES
+set_target_properties(MorseCodeConverter PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -67,12 +67,12 @@ set_target_properties(MorseCodeTranslator PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS MorseCodeTranslator
+install(TARGETS MorseCodeConverter
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(MorseCodeTranslator)
+    qt_finalize_executable(MorseCodeConverter)
 endif()

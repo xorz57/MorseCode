@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     ui->setupUi(this);
 
-    connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(translate()));
+    connect(ui->inputPlainTextEdit, SIGNAL(textChanged()), this, SLOT(convert()));
     connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(open()));
     connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save()));
     connect(ui->actionZoom_In, SIGNAL(triggered(bool)), this, SLOT(zoomIn()));
@@ -43,7 +43,7 @@ QString MainWindow::decode(const QString &input) const {
     return output;
 }
 
-void MainWindow::translate() {
+void MainWindow::convert() {
     QString input = ui->inputPlainTextEdit->toPlainText();
     if (input.startsWith('.') || input.startsWith('-')) {
         QString output = decode(input);

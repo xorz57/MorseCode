@@ -14,7 +14,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
 private slots:
-    void translate();
+    void convert();
     void open();
     void save();
     void zoomIn();
