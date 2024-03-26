@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/xorz57/MorseCodeConverter/actions/workflows/Build.yml/badge.svg)](https://github.com/xorz57/MorseCodeConverter/actions/workflows/Build.yml)
 
-![image](https://github.com/xorz57/MorseCodeConverter/assets/84932056/f53f08c7-8c3b-4634-aa46-b4a6794b6a49)
+![image](https://github.com/xorz57/MorseCodeConverter/assets/84932056/d40867e3-bcd7-4ec8-9aa9-b8e104ad6afb)
 
 ## Features
 
