@@ -2,11 +2,6 @@
   "name": "morse-code-converter",
   "version-string": "0.1.0",
   "dependencies": [
-    {
-      "name": "qtbase",
-      "features": [
-        "widgets"
-      ]
-    }
+    "qt5-base"
   ]
 }
